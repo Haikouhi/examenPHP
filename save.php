@@ -88,7 +88,7 @@ else {
 $extAutorisees = ['jpg', 'jpeg', 'gif', 'png'];
 // je teste si le fichier a bien été envoyé et s'il n'y a pas d'erreur
 if (empty($_FILES['photo']['name'])) {
-    $photo = null;
+    $image = null;
 }
 elseif($_FILES['photo']['error'] !== 0) {
     echo "Attention, erreur lors de l'upload de l'image.";
@@ -103,7 +103,7 @@ elseif (!in_array( pathinfo($_FILES['photo']['name'])['extension'], $extAutorise
     echo "Attention, le fichier n'est pas autorisé.";
 }
 else {
-    $nomAleatoire = "shoe_" . uniqid();
+    $nomAleatoire = "pic_" . uniqid();
     $photo = $nomAleatoire . "." . pathinfo($_FILES['photo']['name'])['extension'];
     move_uploaded_file($_FILES['photo']['tmp_name'], 'uploads/' . $photo );
 }
@@ -136,8 +136,8 @@ if (empty($titre) || empty($adresse) || empty($ville) || empty($cp) || empty($su
 else {
     $bdd = dbConnect();
 
-    $query = "  INSERT INTO logement(titre, adresse, ville, cp, surface, prix, type)
-                VALUES (:titre, :adresse, :ville, :cp, :surface, :prix, :type)";
+    $query = "  INSERT INTO logement(titre, adresse, ville, cp, surface, prix, type, photo)
+                VALUES (:titre, :adresse, :ville, :cp, :surface, :prix, :type, :photo)";
 
     $response = $bdd->prepare($query);
 
@@ -149,6 +149,7 @@ else {
         'surface'   => $surface,
         'prix'      => $prix,
         'type'      => $type,
+        'photo'     => $photo
     ]);
 
     echo "<h3>Le bien a bien été ajouté !</h3>";

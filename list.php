@@ -53,6 +53,7 @@ while ($place = $response->fetch()) {
                         <th>Surface</th>
                         <th>Prix</th>
                         <th>Type</th>
+                        <th>Photo</th>
                         <th></th>
                     </tr>
 
@@ -65,6 +66,8 @@ while ($place = $response->fetch()) {
                             <td><?= $b['surface']; ?></td>
                             <td><?= $b['prix']; ?></td>
                             <td><?= $b['type']; ?></td>
+                            <td><img src="uploads/"></td>
+<!-- je n'arrive pas à mettre mon image dans sa colonne, donc j'ai crée une page show.php afin qu'on puisse le voir  -->
                             <td>
                                 <a href="show.php?id=<?= $b['id']; ?>" class="btn btn-sm btn-primary">Plus d'infos</a>
                                 </td>

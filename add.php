@@ -20,7 +20,6 @@
                     <h2>Ajouter un bien</h2>
                     <a href="list.php" class="btn btn-sm btn-warning">< retour</a>
                     <br>
-                    Les champs avec une astérisque * sont obligatoires.
                     <ul class="list-group">
                     <?php   
                         if (!empty($_SESSION['form_error'])) {
@@ -36,7 +35,7 @@
 
 
 <!-- formulaire -->
-                <form action="save.php" method="post">
+                <form action="save.php" method="post" enctype="multipart/form-data">
 
                 <!-- pour faciliter l'écriture du code et pour éviter de faire des erreures de saisi je vais utiliser les mêmes termes pour mes id et mes names :) -->
 
@@ -63,12 +62,12 @@
 
             <!-- surface -->
                 <label for="surface">Surface:</label>
-                <input class="form-control" type="number" name="surface" max="5000000" id="surface" required>
+                <input class="form-control" type="number" name="surface" min= "0" max="5000000" id="surface" required>
 
 
             <!-- prix -->
                 <label for="prix">Prix</label>
-                <input class="form-control" type="number" name="prix" max="5000000" id="prix" required>
+                <input class="form-control" type="number" name="prix" min= "50000" max="5000000" id="prix" required>
 
 
             <!-- photo -->
@@ -77,7 +76,8 @@
 
             <!-- type -->
                  <label for="type">Type:</label>
-                    <select id="type" class="form-control" name="type">
+                    <select id="type" class="form-control" name="type" required>
+                    <option disabled selected>Veuillez choisir un type...</option>
                         <option value="location">Location</option>          
                         <option value="vente">Vente</option>
                         

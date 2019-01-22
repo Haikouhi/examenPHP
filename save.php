@@ -149,13 +149,58 @@ else {
         'surface'   => $surface,
         'prix'      => $prix,
         'type'      => $type,
-        'photo'     => $photo
+        'photo'     => $photo,
     ]);
 
     echo "<h3>Le bien a bien été ajouté !</h3>";
     echo "<a href='list.php'>Retour à la liste</a>";
 }
 
+
+// j'ai essayé l'exercice 5 et ça a tout cassé, du coup je mets en commentaire comme ça je pourrais te demander où je me suis trompée
+
+
+
+
+// // photo
+// $extAutorisees = ['jpg', 'jpeg', 'gif', 'png'];
+// // je teste si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+// if (empty($_FILES['photo']['name'])) {
+//     $image = null;
+// }
+// elseif($_FILES['photo']['error'] !== 0) {
+//     echo "Attention, erreur lors de l'upload de l'image.";
+// }
+// // je teste si le fichier n'est pas trop gros
+// elseif ($_FILES['photo']['size'] >= 1000000) {
+//     echo "Attention, l'image est trop grosse.";
+// }
+// // je teste si l'extension est autorisée
+// // J'accède à l'extension grâce à : pathinfo($_FILES['imageChaussure']['name'])['extension']
+// elseif (!in_array( pathinfo($_FILES['photo']['name'])['extension'], $extAutorisees) ) {
+//     echo "Attention, le fichier n'est pas autorisé.";
+// }
+// else {
+//     // On récupère le dernier ID enregistré
+//         $idPhoto = $bdd->lastInsertId();
+
+//         // On nomme l'image comme souhaité
+//         $photo = "pic_" . $idPhoto;
+
+//         // Pensez bien à rajouter l'extension du fichier à la place de [extension] !!
+//         $fullNamePhoto = $photo . "." . ['extension'];
+
+//         // On adapte la suite de l'enregistrement en utilisant cette fois $nomImageComplet et plus $nomAleatoire
+        
+//          $reqUpload = "UPDATE logement SET photo = :image WHERE id = :id";
+
+//         $responseUpload = $bdd->prepare($reqUpload);
+
+//         $responseUpload->execute([
+//             'id' => $idPhoto,
+//             'photo' => $fullNamePhoto
+//         ]);
+// }
 
 
 

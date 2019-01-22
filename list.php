@@ -66,8 +66,9 @@ while ($place = $response->fetch()) {
                             <td><?= $b['surface']; ?></td>
                             <td><?= $b['prix']; ?></td>
                             <td><?= $b['type']; ?></td>
-                            <td><img src="uploads/"></td>
-<!-- je n'arrive pas à mettre mon image dans sa colonne, donc j'ai crée une page show.php afin qu'on puisse le voir  -->
+                            <td><?= $b['photo']; ?></td>
+<!-- je n'arrive pas à mettre mon image dans sa colonne, donc j'ai crée une page show.php afin qu'on puisse le voir // 
+chose étrange, quand on fait un click-droit sur l'image 'cassé' dans list.php on tombe sur mon index uploads -->
                             <td>
                                 <a href="show.php?id=<?= $b['id']; ?>" class="btn btn-sm btn-primary">Plus d'infos</a>
                                 </td>
